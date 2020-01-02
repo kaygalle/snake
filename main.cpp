@@ -8,7 +8,7 @@
 #include "snake.hpp"
 bool check( Map m)
 {
-    if(m._snake._pos[0].x == -1 || m._snake._pos[0].x == _width|| m._snake._pos[0].y == -1 || m._snake._pos[0].y == _height)
+    if(m._snake._pos[0].x == 0  || m._snake._pos[0].x == _width-1 || m._snake._pos[0].y == 0 || m._snake._pos[0].y == _height-1)
     {
         return false;
     }
