@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <cstdlib>
 #include <termios.h>            
 #include <unistd.h>
 #include <fcntl.h>
@@ -75,7 +76,8 @@ int main()
         {
             break;
         }
-        sleep(1);
+        usleep(500000);
+        system("clear");
     }
     tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
     m.lose();
