@@ -5,6 +5,7 @@
 #define _width 30
 
 #include <time.h>
+#include <unistd.h>
 #include <iostream>
 #include <vector>
 #include "point.hpp"

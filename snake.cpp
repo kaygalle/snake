@@ -96,6 +96,7 @@ void Snake::plus()
 }
 void Snake::move()
 {
+    usleep(160000);
     if(direction == Up)
     {
         moveUP();
