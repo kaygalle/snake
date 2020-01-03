@@ -51,33 +51,43 @@ int main()
     newt.c_lflag &= ~(ICANON);
     newt.c_lflag &= ~ECHO;
     tcsetattr( STDIN_FILENO, TCSANOW, &newt);
+    time_t timer1;
+    time_t timer2;
     while(check(m))
     {   
+        time(&timer1);
         if(kbhit()==1)
         {    
             c=getchar();
+            if(c == 'q')
+                exit(1);
         }
         m._snake.controller(c);
-        m.make_borders();
-        m.draw_snake();
-        m.draw_eat();
-        if((m._eat_x == m._snake._pos[0].x && m._eat_y == m._snake._pos[0].y)|| _begin == 0)
+        if(difftime(timer1, timer2) > 0.00003)
         {
-            m.init_eat();
-            if(_begin != 0)
+             time(&timer2);
+            m.make_borders();
+            m.draw_snake();
+            m.draw_eat();
+            if((m._eat_x == m._snake._pos[0].x && m._eat_y == m._snake._pos[0].y)|| _begin == 0)
             {
-                m._snake.plus();
+                m.init_eat();
+                if(_begin != 0)
+                {
+                    m._snake.plus();
+                }
+                _begin = 1;
             }
-            _begin = 1;
+            m._snake.move();
+            
+            if(c=='m')
+            {
+                break;
+            }
         }
-        m._snake.move();
+            system("clear");
+
         m.print_map();
-        if(c=='m')
-        {
-            break;
-        }
-        usleep(500000);
-        system("clear");
     }
     tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
     m.lose();
