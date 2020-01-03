@@ -2,7 +2,7 @@
 void Snake::moveDOWN()
 {
     for(int i = _pos.size()-1; i > 0; i--)
-    { 
+    {
         _pos[i].x = _pos[i-1].x;
         _pos[i].y = _pos[i-1].y;
     }
@@ -11,7 +11,7 @@ void Snake::moveDOWN()
 void Snake::moveUP()
 {
     for(int i = _pos.size()-1; i > 0; i--)
-    { 
+    {
         _pos[i].x = _pos[i-1].x;
         _pos[i].y = _pos[i-1].y;
     }
@@ -20,7 +20,7 @@ void Snake::moveUP()
 void Snake::moveLEFT()
 {
     for(int i = _pos.size()-1; i > 0; i--)
-    { 
+    {
         _pos[i].x = _pos[i-1].x;
         _pos[i].y = _pos[i-1].y;
     }
@@ -29,7 +29,7 @@ void Snake::moveLEFT()
 void Snake::moveRIGHT()
 {
     for(int i = _pos.size()-1; i > 0; i--)
-    { 
+    {
         _pos[i].x = _pos[i-1].x;
         _pos[i].y = _pos[i-1].y;
     }
@@ -68,7 +68,6 @@ void Snake::controller(int key)
 }
 void Snake::plus()
 {
-    
     Point n (_pos[_pos.size()-1].x,_pos[_pos.size()-1].y);
         // _pos.push_back(n);
     if(direction == Up)

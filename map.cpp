@@ -8,8 +8,10 @@ void Map::print_map()
         for (int j = 0; j < _width; j++)
         {
             std::cout << _map [i][j];
+            // printw("%c",_map[i][j]);
         }
         std::cout << std::endl;
+        // printw("\n");
     }
 }
 void Map::make_borders()
@@ -51,7 +53,7 @@ void Map::draw_snake()
 }
 void Map::draw_eat()
 {
-    draw(_eat_x,_eat_y,'e');
+    draw(_eat_x,_eat_y,'o');
 }
 void Map::init_eat()
 {
