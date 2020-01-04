@@ -10,6 +10,13 @@
 
 bool check( Map m)
 {
+    for(size_t i = 1; i < m._snake._pos.size(); i++)
+    {
+        if(m._snake._pos[0].x == m._snake._pos[i].x && m._snake._pos[0].y == m._snake._pos[i].y)
+        {
+            return false;
+        }
+    }
     if(m._snake._pos[0].x == 0  || m._snake._pos[0].x == _width-1 || m._snake._pos[0].y == 0 || m._snake._pos[0].y == _height-1)
     {
         return false;
@@ -28,12 +35,7 @@ int kbhit(void)
   tcsetattr(STDIN_FILENO, TCSANOW, &newt);
   oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
   fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
-
   ch = getchar();
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-  fcntl(STDIN_FILENO, F_SETFL, oldf);
-
   if(ch != EOF)
   {
     ungetc(ch, stdin);
@@ -47,12 +49,6 @@ int main()
     int key;
     int prevkey;
     int _begin = 0;
-    static struct termios oldt, newt;
-    tcgetattr( STDIN_FILENO, &oldt);
-    newt = oldt;
-    newt.c_lflag &= ~(ICANON);
-    newt.c_lflag &= ~ECHO;
-    tcsetattr( STDIN_FILENO, TCSANOW, &newt);
     while(check(m))
     {   
         if(kbhit()==1)
@@ -80,6 +76,5 @@ int main()
         system("clear");
         m.print_map();
    }
-    tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
-    m.lose();
+   m.lose();
 }
