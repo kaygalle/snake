@@ -53,7 +53,6 @@ void Start::game()
         prevkey=key;
         m.make_borders();
         m.draw_snake();
-        m.draw_eat();
         if((m._eat_x == m._snake._pos[0].x && m._eat_y == m._snake._pos[0].y)|| _begin == 0)
         {
             m.init_eat();
@@ -63,6 +62,7 @@ void Start::game()
             }
             _begin = 1;
         }
+        m.draw_eat();
         m._snake.move();
         system("clear");
         m.print_map();
