@@ -24,7 +24,7 @@ class Snake
     std::vector <Point> _pos;
     Snake()
     {
-        Point m((rand() * time(0)) % (_width-2)+1,(rand()*time(0)) % (_height-2)+1);
+        Point m(_width/2,_height/2);
         _pos.push_back(m);
     };
     void moveUP();
