@@ -41,18 +41,22 @@ int kbhit(void)
   }
   return 0;
 }
-int main()
+void enter_off()
 {
-    Map m;
-    int key;
-    int prevkey;
-    int _begin = 0;
     static struct termios oldt, newt;
     tcgetattr( STDIN_FILENO, &oldt);
     newt = oldt;
     newt.c_lflag &= ~(ICANON);
     newt.c_lflag &= ~ECHO;
     tcsetattr( STDIN_FILENO, TCSANOW, &newt);
+}
+int main()
+{
+    Map m;
+    int key;
+    int prevkey;
+    int _begin = 0;
+    enter_off();
     while(check(m))
     {   
         if(kbhit()==1)
@@ -80,6 +84,5 @@ int main()
         system("clear");
         m.print_map();
    }
-    tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
-    m.lose();
+   m.lose();
 }
