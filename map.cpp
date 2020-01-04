@@ -89,6 +89,7 @@ void Map::init_eat()
 void Map::lose()
 {
         std::cout << RED;
+        std::cout << std::endl;
         std::cout << ("    #    ##### ###### #####") << std::endl;
         std::cout << ("   #    #   # #      #    ") << std::endl;
         std::cout << ("  #    #   # ###### #####") << std::endl;

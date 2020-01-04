@@ -96,24 +96,27 @@ void Snake::plus()
 }
 void Snake::move()
 {
-    usleep(160000);
     if(direction == Up)
     {
+        usleep(200000);
         moveUP();
     }
     else
     if(direction == Down)
     {
+        usleep(200000);
         moveDOWN();
     }
     else
     if(direction == Left)
     {
+        usleep(160000);
         moveLEFT();
     }
     else
     if(direction == Right)
     {
+        usleep(160000);
         moveRIGHT();
     }
 }
