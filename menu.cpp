@@ -101,8 +101,4 @@ int Menu::move_arrow()
             return 0;
         }
     }
-    else
-    {
-        move_arrow();    
-    }
 }

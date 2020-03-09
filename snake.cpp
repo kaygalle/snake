@@ -69,7 +69,6 @@ void Snake::controller(int key)
 void Snake::plus()
 {
     Point n (_pos[_pos.size()-1].x,_pos[_pos.size()-1].y);
-        // _pos.push_back(n);
     if(direction == Up)
     {
         Point n (_pos[_pos.size()-1].x,_pos[_pos.size()-1].y+1);
